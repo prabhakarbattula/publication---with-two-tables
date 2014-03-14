@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'authors/edit/:id' => 'authors#edit'
   get 'authors/update/:id' => 'authors#update'
   get 'authors/delete/:id' => 'authors#delete'
+  get 'authors/find'
 
 
   get 'books/new/:id' => 'books#new'

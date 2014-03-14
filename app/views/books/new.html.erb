@@ -1,8 +1,7 @@
 <%= form_for @book, :url => {:controller => 'books', :action => 'create'}, method: :get do |book| %>
 	<%= book.text_field :book_name %>
-	<%= book.text_field :author_id %>
+	<%= book.hidden_field :author_id %>
 	<%= book.submit "Create New Book" %>
 
 <% end %> 
 
-<%= params.inspect %>

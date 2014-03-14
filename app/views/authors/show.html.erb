@@ -1,18 +1,21 @@
 
 Author Name: <%= @author.author_name.upcase %> <br><br>
 
+<a data-method="get" href= <%= "/books/new/#{@author.id}" %> class="btn btn btn-success active"><i class="icon-white icon-pencil"></i> Create New Book </a>
 
+<a data-method="get" href= <%= "/authors/index" %> class="btn btn btn-info active"><i class="icon-arrow-left"></i> Go back to Main Page </a>
 
-<%= link_to "< Create New Book >", "/books/new/#{@author.id}" %> |  
- <%= link_to "< Go Back to Main Page >", "/authors/index" %> 
-
+ 
 <hr>
-<h3> Displaying list of Books</h3>
+<h4> Displaying list of Books</h4>
 <hr>
 <% @author.books.each do |a| %>
-	--> <%= a.book_name.upcase %> |
-		<%= link_to "< EDIT >", "/books/edit/#{a.id}" %> | 
-		<%= link_to "< DELETE >", "/books/delete/#{a.id}" %>  
+	--> <%= a.book_name.upcase %> 
+			
+	<a data-method="get" href= <%= "/books/edit/#{a.id}"%> class="btn btn-warning btn-small"><i class="icon-white icon-envelope"></i> EDIT</a>
+	<a data-method="get" href= <%= "/books/delete/#{a.id}"%> class="btn btn-danger btn-small"><i class="icon-white icon-heart"></i> DELETE </a>
+	
+
 	<br>
 <% end %>
 

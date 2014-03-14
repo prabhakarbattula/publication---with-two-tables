@@ -1,6 +1,6 @@
 <%= form_for @book, :url => {:controller => 'books', :action => 'update'}, method: :get do |book| %>
 	<%= book.text_field :book_name %>
-	<%= book.text_field :author_id %>
+	<%= book.hidden_field :author_id %>
 	<%= book.submit "Edit Book" %>
 
 <% end %> 

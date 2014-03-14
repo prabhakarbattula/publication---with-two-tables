@@ -1,14 +1,27 @@
+
+<%= button_to "Create New Author", "/authors/new", method: :get %>
+
+<hr>
+
 <h3> Displaying List of Authors </h3>
 
 <hr>
 
-<% @authors.each do |author| %>
-	<< <%= link_to author.author_name.upcase, "/authors/show/#{author.id}" %> >>
-	<%= link_to "EDIT", "/authors/edit/#{author.id}", method: :get %> |	
-	<%= link_to "SHOW", "/authors/show/#{author.id}", method: :get %> |
-	<%= link_to "DELETE", "/authors/delete/#{author.id}", method: :get %> 	
-	<br>
-<% end %>
-<hr>
 
-<%= button_to "Create New Author", "/authors/new", method: :get %>
+
+
+
+
+<% @authors.each do |author| %>
+		
+	<a data-method="get" href= <%= "/authors/show/#{author.id}" %> class="btn btn btn-small active"><i class="icon-white icon-pencil"></i> <%= author.author_name.upcase %> </a>
+
+	<a data-method="get" href= <%= "/authors/edit/#{author.id}"%> class="btn btn-warning btn-small"><i class="icon-white icon-envelope"></i> EDIT</a>
+	<a data-method="get" href= <%= "/authors/delete/#{author.id}"%> class="btn btn-danger btn-small"><i class="icon-white icon-heart"></i> DELETE </a>
+	
+	<br> <br>
+<% end %>
+
+
+
+
