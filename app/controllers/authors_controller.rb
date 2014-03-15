@@ -16,9 +16,14 @@ class AuthorsController < ApplicationController
 		@author = Author.find(params[:id])
 	end
 
-	def index
-		@authors = Author.all.order('author_name')
-	end
+	 def index
+      if params[:search]
+        @authors  = Author.search(params[:search]).order("created_at DESC")
+      else
+        @authors = Author.all.order('created_at DESC')
+      end
+    end
+
 
 	def edit
 		@author = Author.find(params[:id])

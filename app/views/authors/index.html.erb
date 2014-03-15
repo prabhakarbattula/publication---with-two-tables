@@ -1,4 +1,11 @@
 
+
+<%= form_tag(index_author_path, :method => "get", id: "search-form") do %>
+<%= text_field_tag :search, params[:search], placeholder: "Search authors here" %>
+<%= submit_tag "Search", :name => nil %>
+<% end %>
+
+
 <%= button_to 'Create New Author', new_author_path, method: :get %>
 
 <hr>

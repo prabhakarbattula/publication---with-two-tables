@@ -1,12 +1,9 @@
 Rails.application.routes.draw do
 
-  root :to => 'authors#index'
-
-  
+  get 'authors/index' => 'authors#index', as: :index_author
   get 'authors/new' => 'authors#new', as: :new_author
   post 'authors/create' => 'authors#create', as: :create_author
   get 'authors/show/:id' => 'authors#show', as: :show_author
-  get 'authors/index' => 'authors#index', as: :index_author
   get 'authors/edit/:id' => 'authors#edit', as: :edit_author
   patch 'authors/update/:id' => 'authors#update', as: :update_author
   delete 'authors/delete/:id' => 'authors#delete', as: :delete_author
@@ -18,6 +15,8 @@ Rails.application.routes.draw do
   get 'books/edit/:id' => 'books#edit', as: :edit_book
   patch 'books/update/:id' => 'books#update', as: :update_book
   get 'books/delete/:id' => 'books#delete', as: :delete_book
+
+  root  'authors#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
