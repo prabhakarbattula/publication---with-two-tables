@@ -13,7 +13,7 @@ Author Name: <%= @author.author_name.upcase %> <br><br>
 	--> <%= a.book_name.upcase %> 
 			
 	<a href= <%= edit_book_path(id: a.id) %> class="btn btn-warning btn-small"><i class="icon-white icon-envelope"></i> EDIT</a>
-	<a data-method="delete" href= <%= delete_book_path(id: a.id) %> class="btn btn-danger btn-small"><i class="icon-white icon-heart"></i> DELETE </a>
+	<a  href= <%= delete_book_path(id: a.id) %> class="btn btn-danger btn-small"><i class="icon-white icon-heart"></i> DELETE </a>
 	
 
 	<br>

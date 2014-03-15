@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'authors#index'
+  root :to => 'authors#index'
 
   
   get 'authors/new' => 'authors#new', as: :new_author
@@ -8,15 +8,15 @@ Rails.application.routes.draw do
   get 'authors/show/:id' => 'authors#show', as: :show_author
   get 'authors/index' => 'authors#index', as: :index_author
   get 'authors/edit/:id' => 'authors#edit', as: :edit_author
-  post 'authors/update/:id' => 'authors#update', as: :update_author
+  patch 'authors/update/:id' => 'authors#update', as: :update_author
   delete 'authors/delete/:id' => 'authors#delete', as: :delete_author
   #get 'authors/find'
 
 
   get 'books/new/:id' => 'books#new', as: :new_book
-  get 'books/create' => 'books#create', as: :create_book
+  post 'books/create' => 'books#create', as: :create_book
   get 'books/edit/:id' => 'books#edit', as: :edit_book
-  get 'books/update/:id' => 'books#update', as: :update_book
+  patch 'books/update/:id' => 'books#update', as: :update_book
   get 'books/delete/:id' => 'books#delete', as: :delete_book
 
   # The priority is based upon order of creation: first created -> highest priority.
