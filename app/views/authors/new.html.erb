@@ -1,1 +1,1 @@
-<%= form_for @author, :url => {:controller => 'authors', :action => 'create'}, method: 'get' do |author| %>	Author's Name : <%= author.text_field :author_name %> <br> <br>	<%= author.submit "Create new Author" %><% end %><hr><%= button_to "Go Back to Main Page", "/authors/index", method: :get %> 
+<%= form_for @author, :url => create_author_path do |author| %>	Author's Name : <%= author.text_field :author_name %> <br> <br>	<%= author.submit "Create new Author" %><% end %><hr><%= button_to 'Go Back to Main Page', index_author_path  %>

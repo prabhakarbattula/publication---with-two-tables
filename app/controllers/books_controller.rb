@@ -7,7 +7,7 @@ class BooksController < ApplicationController
 	def create
 		@book = Book.create(book_params)
 		
-		redirect_to "/authors/show/#{@book.author_id}"
+		redirect_to show_authors_path(id: @book.author_id)
 	end
 
 	def edit
@@ -18,14 +18,14 @@ class BooksController < ApplicationController
 		@book = Book.find(params[:id])
 		@book.update(book_params)
 
-		redirect_to "/authors/show/#{@book.author_id}"
+		redirect_to show_authors_path(id: @book.author_id)
 	end
 
 	def delete
 		@book = Book.find(params[:id])
 		@book.delete
 
-		redirect_to "/authors/index"
+		redirect_to authors_path
 	end
 
 	def book_params

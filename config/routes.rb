@@ -2,21 +2,22 @@ Rails.application.routes.draw do
 
   root 'authors#index'
 
-  get 'authors/new' => 'authors#new'
-  get 'authors/create' => 'authors#create'
-  get 'authors/show/:id' => 'authors#show'
-  get 'authors/index' => 'authors#index'
-  get 'authors/edit/:id' => 'authors#edit'
-  get 'authors/update/:id' => 'authors#update'
-  get 'authors/delete/:id' => 'authors#delete'
-  get 'authors/find'
+  
+  get 'authors/new' => 'authors#new', as: :new_author
+  post 'authors/create' => 'authors#create', as: :create_author
+  get 'authors/show/:id' => 'authors#show', as: :show_author
+  get 'authors/index' => 'authors#index', as: :index_author
+  get 'authors/edit/:id' => 'authors#edit', as: :edit_author
+  post 'authors/update/:id' => 'authors#update', as: :update_author
+  delete 'authors/delete/:id' => 'authors#delete', as: :delete_author
+  #get 'authors/find'
 
 
-  get 'books/new/:id' => 'books#new'
-  get 'books/create' => 'books#create'
-  get 'books/edit/:id' => 'books#edit'
-  get 'books/update/:id' => 'books#update'
-  get 'books/delete/:id' => 'books#delete'
+  get 'books/new/:id' => 'books#new', as: :new_book
+  get 'books/create' => 'books#create', as: :create_book
+  get 'books/edit/:id' => 'books#edit', as: :edit_book
+  get 'books/update/:id' => 'books#update', as: :update_book
+  get 'books/delete/:id' => 'books#delete', as: :delete_book
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

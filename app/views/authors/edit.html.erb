@@ -1,6 +1,6 @@
-<%= form_for @author, :url => {:controller => 'authors', :action => 'update'}, method: 'get' do |author| %>
+<%= form_for @author, :url => authors_create_path do |author| %>
 	<%= author.text_field :author_name %>
 	<%= author.submit "Update Author" %>
 <% end %>
 
-<%= button_to "Go Back to Main Page", "/authors/index", method: :get %> 
+<%= button_to "Go Back to Main Page", authors_index_path, method: :get %> 

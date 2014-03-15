@@ -1,4 +1,4 @@
-<%= form_for @book, :url => {:controller => 'books', :action => 'update'}, method: :get do |book| %>
+<%= form_for @book, edit_book_path do |book| %>
 	<%= book.text_field :book_name %>
 	<%= book.hidden_field :author_id %>
 	<%= book.submit "Edit Book" %>
