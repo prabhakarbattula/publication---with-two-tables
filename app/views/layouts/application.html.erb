@@ -63,15 +63,17 @@
         <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
+            <ul class="nav nav-list">
               <li class="nav-header">SEARCH TOOLS</li>
-              <li><%= link_to "Search by Author", "/path1"  %></li>
-              <li><%= link_to "Search by Book", "/path2"  %></li>
+              <li><%= link_to "Search by Author", king_author_path  %></li>
+              <li><%= link_to "Search by Book", king_book_path  %></li>
 
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
         <div class="span9">
           <%= bootstrap_flash %>
+
           <%= yield %>
         </div>
       </div><!--/row-->

@@ -1,0 +1,21 @@
+
+Book Name: <%= @book.book_name.upcase %> <br><br>
+
+
+
+<%= link_to "Go Back to Main Page", books_path %>
+
+
+<hr>
+<h4> Displaying list of Books </h4>
+<hr>
+<% @book.authors.each do |a| %>
+    --> <%= a.author_name.upcase %>
+
+    <%= link_to "EDIT", edit_book_path(id: a.id) %>
+    <%= link_to "DELETE", book_path(id: a.id), method: :delete %>
+
+    <br>
+<% end %>
+
+

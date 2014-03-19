@@ -8,7 +8,25 @@ class BooksController < ApplicationController
 		@book = Book.create(book_params)
 		
 		redirect_to author_path(id: @book.author_id)
-	end
+  end
+
+  def king
+
+  end
+
+  def index
+    if params[:search]
+      @books  = Book.search(params[:search]).order("created_at DESC")
+
+    else
+      @books = Book.all.order('created_at DESC')
+    end
+  end
+
+  def show
+    @book = Book.find(params[:id])
+    @author = @book.author
+  end
 
 	def edit
 		@book = Book.find(params[:id])

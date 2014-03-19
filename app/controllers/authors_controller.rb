@@ -11,7 +11,7 @@ class AuthorsController < ApplicationController
 		redirect_to author_path(id: @author.id)
 	end
 
-  def find
+  def king
 
   end
 
@@ -20,12 +20,12 @@ class AuthorsController < ApplicationController
   end
 
 	 def index
-      if params[:search]
-        @authors  = Author.search(params[:search]).order("created_at DESC")
-      else
-        @authors = Author.all.order('created_at DESC')
-      end
-    end
+     if params[:search]
+       @authors  = Author.search(params[:search]).order("created_at DESC")
+     else
+       @authors = Author.all.order('created_at DESC')
+     end
+   end
 
 
 	def edit

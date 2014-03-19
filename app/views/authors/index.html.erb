@@ -1,25 +1,49 @@
-
-
-<%= form_tag(authors_path, :method => "get", id: "search-form") do %>
-<%= text_field_tag :search, params[:search], placeholder: "Search authors here" %>
-<%= submit_tag "Search", :name => nil %>
-<% end %>
-
-
-<%= link_to 'Create New Author', new_author_path  %>
+<%= link_to 'Create New Author', new_author_path, :class => "btn btn-small btn-success"  %>
 
 <hr>
-<h4> Displaying List of Authors </h4>
-<hr>
 
-<% @authors.each do |author| %>
-		
 
-<%= link_to author.author_name.upcase, author_path(id: author.id) %>
+<h4> Displaying Authors </h4>
 
-<%= link_to "EDIT", edit_author_path(id: author.id) %>
+<head>
+  <style>
 
-<%= link_to "DELETE", author_path(id: author.id), method: :delete %>
-	
-	<br> <br>
-<% end %>
+      table, td, th
+      {
+          border:2px solid blue;
+      }
+      th
+      {
+          background-color: royalblue;
+          color:white;
+      }
+      td, th
+      {
+          padding:5px;
+      }
+      tr:nth-child(even) {background-color: white}
+      tr:nth-child(odd) {background-color: lightcyan}
+  </style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <th>Author Name</th>
+
+    <th> ACTION </th>
+    <th> ACTION </th>
+
+  </tr>
+
+  <% @authors.each do |author| %>
+      <tr>
+        <td><%= link_to author.author_name.upcase, author_path(id: author.id) %></td>
+
+        <td> <%= link_to "EDIT", edit_author_path(id: author.id), :class => 'btn btn-mini btn-warning' %> </td>
+        <td> <%= link_to "DELETE", author_path(id: author.id), method: :delete, :class => 'btn btn-mini btn-danger' %> </td>
+      </tr>
+  <% end %>
+</table>
+</body>
+

@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
 
+  get 'authors/king' => 'authors#king', as: :king_author
+  get 'books/king' => 'books#king', as: :king_book
+  get 'books/new/:id' => 'books#new', as: :new_book_for_author
+
   root  'authors#index'
 
   resources :authors, :books
 
-  get 'books/new/:id' => 'books#new', as: :new_book_for_author
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
