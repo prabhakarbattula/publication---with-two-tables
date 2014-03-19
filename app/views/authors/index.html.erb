@@ -1,12 +1,12 @@
 
 
-<%= form_tag(index_author_path, :method => "get", id: "search-form") do %>
+<%= form_tag(authors_path, :method => "get", id: "search-form") do %>
 <%= text_field_tag :search, params[:search], placeholder: "Search authors here" %>
 <%= submit_tag "Search", :name => nil %>
 <% end %>
 
 
-<%= button_to 'Create New Author', new_author_path, method: :get %>
+<%= link_to 'Create New Author', new_author_path  %>
 
 <hr>
 <h4> Displaying List of Authors </h4>
@@ -15,11 +15,11 @@
 <% @authors.each do |author| %>
 		
 
-<a data-method="get" href= '<%= show_author_path(id: author.id) %>' class="btn btn-info btn-small"><i class="icon-white icon-envelope"></i> <%= author.author_name.upcase %> </a>
+<%= link_to author.author_name.upcase, author_path(id: author.id) %>
 
-<a data-method="get" href= <%= edit_author_path(id: author.id) %> class="btn btn-warning btn-small"><i class="icon-white icon-envelope"></i> EDIT</a>
+<%= link_to "EDIT", edit_author_path(id: author.id) %>
 
-<a data-method="delete" href= <%= delete_author_path(id: author.id) %> class="btn btn-danger btn-small"><i class="icon-white icon-heart"></i> DELETE </a>
+<%= link_to "DELETE", author_path(id: author.id), method: :delete %>
 	
 	<br> <br>
 <% end %>

@@ -1,9 +1,9 @@
 
 Author Name: <%= @author.author_name.upcase %> <br><br>
 
-<a data-method="get" href= <%= new_book_path(id: @author.id) %> class="btn btn btn-success active"><i class="icon-white icon-pencil"></i> Create New Book </a>
+<%= link_to "Create New Book", new_book_for_author_path(id: @author.id) %>
 
-<a data-method="get" href= <%= index_author_path %> class="btn btn btn-info active"><i class="icon-arrow-left"></i> Go back to Main Page </a>
+<%= link_to "Go Back to Main Page", authors_path %>
 
  
 <hr>
@@ -11,10 +11,9 @@ Author Name: <%= @author.author_name.upcase %> <br><br>
 <hr>
 <% @author.books.each do |a| %>
 	--> <%= a.book_name.upcase %> 
-			
-	<a href= <%= edit_book_path(id: a.id) %> class="btn btn-warning btn-small"><i class="icon-white icon-envelope"></i> EDIT</a>
-	<a  href= <%= delete_book_path(id: a.id) %> class="btn btn-danger btn-small"><i class="icon-white icon-heart"></i> DELETE </a>
-	
+
+	<%= link_to "EDIT", edit_book_path(id: a.id) %>
+	<%= link_to "DELETE", book_path(id: a.id), method: :delete %>
 
 	<br>
 <% end %>

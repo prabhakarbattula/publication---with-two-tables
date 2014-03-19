@@ -8,13 +8,16 @@ class AuthorsController < ApplicationController
 		@author = Author.new(author_params)
 		@author.save
 
-		redirect_to show_author_path(id: @author.id)
-		
+		redirect_to author_path(id: @author.id)
 	end
+
+  def find
+
+  end
 
 	def show
 		@author = Author.find(params[:id])
-	end
+  end
 
 	 def index
       if params[:search]
@@ -33,14 +36,14 @@ class AuthorsController < ApplicationController
 		@author = Author.find(params[:id])
 		@author.update(author_params)
 
-		redirect_to show_author_path(id: @author.id)
+		redirect_to author_path(id: @author.id)
 	end
 
-	def delete
+	def destroy
 		@author = Author.find(params[:id])
 		@author.delete
 
-		redirect_to index_author_path
+		redirect_to authors_path
 	end
 
 	def author_params

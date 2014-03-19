@@ -1,8 +1,8 @@
-<%= form_for @book, :url => create_book_path do |book| %>
+<%= form_for @book, :url => books_path do |book| %>
 	<%= book.text_field :book_name %>
 	<%= book.hidden_field :author_id %>
 	<%= book.submit "Create New Book" %>
 
 <% end %>
 
-<%= button_to 'Go Back ', show_author_path(params[:id]), method: :get  %>
+<%= link_to 'Go Back ', author_path(params[:id]) %>
