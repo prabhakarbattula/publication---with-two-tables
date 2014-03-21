@@ -1,9 +1,5 @@
 
-Author Name: <%= @author.author_name.upcase %> <br><br>
-
-<%= link_to "Create New Book", new_book_for_author_path(id: @author.id) %>
-
-<%= link_to "Go Back to Main Page", authors_path %>
+<%= link_to "Go Back to Main Page", root_author_path, :class => "btn btn-small btn-primary btn-active" %>
 
  
 <hr>
@@ -12,8 +8,8 @@ Author Name: <%= @author.author_name.upcase %> <br><br>
 <% @author.books.each do |a| %>
 	--> <%= a.book_name.upcase %> 
 
-	<%= link_to "EDIT", edit_book_path(id: a.id) %>
-	<%= link_to "DELETE", book_path(id: a.id), method: :delete %>
+	<%= link_to "EDIT", edit_book_path(id: a.id), :class => "btn btn-mini btn-warning btn-active" %>
+	<%= link_to "DELETE", book_path(id: a.id), method: :delete, :class => "btn btn-mini btn-danger btn-active" %>
 
 	<br>
 <% end %>

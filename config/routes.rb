@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
 
-  get 'authors/king' => 'authors#king', as: :king_author
-  get 'books/king' => 'books#king', as: :king_book
-  get 'books/new/:id' => 'books#new', as: :new_book_for_author
+  get 'authors/search' => 'authors#search', as: :search_author
+  get 'books/search' => 'books#search', as: :search_book
+  get 'authors/display' => 'authors#display', as: :display_author
+  get 'books/display' => 'books#display', as: :display_book
+  get 'authors/root' => 'authors#root', as: :root_author
 
-  root  'authors#index'
+  root  'authors#root'
 
   resources :authors, :books
 

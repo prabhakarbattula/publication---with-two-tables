@@ -1,6 +1,9 @@
-
-<%= form_tag(authors_path, :method => "get", id: "search-form") do %>
+<%= form_tag(display_author_path, :method => "get", id: "search-form") do %>
 <%= text_field_tag :search, params[:search], placeholder: "Search authors here" %>
 <%= submit_tag "Search", :name => nil %>
 <% end %>
+
+<hr>
+
+
 

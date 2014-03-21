@@ -28,15 +28,14 @@
 <table>
   <tr>
     <th>Book Name</th>
-    <th>Author Name</th>
+
     <th> ACTION </th>
     <th> ACTION </th>
   </tr>
 
   <% @books.each do |book| %>
       <tr>
-        <td><%= book.book_name.upcase %></td>
-        <td><%= book.author.author_name.upcase %></td>
+        <td><%= link_to book.book_name.upcase, book_path(id: book.id)  %></td>
 
         <td> <%= link_to "EDIT", edit_book_path(id: book.id), :class => 'btn btn-mini btn-warning' %> </td>
         <td> <%= link_to "DELETE", book_path(id: book.id), method: :delete, :class => 'btn btn-mini btn-danger' %> </td>
@@ -44,4 +43,7 @@
   <% end %>
 </table>
 </body>
+
+<br>
+<%= link_to "Go Back to Main Page", root_author_path, :class => "btn btn-small btn-info btn-active" %>
 

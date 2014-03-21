@@ -11,22 +11,17 @@ class AuthorsController < ApplicationController
 		redirect_to author_path(id: @author.id)
 	end
 
-  def king
-
+  def search
+    #render display_author_path
   end
 
-	def show
-		@author = Author.find(params[:id])
+  def display
+    @authors  = Author.search(params[:search]).order("author_name")
   end
 
-	 def index
-     if params[:search]
-       @authors  = Author.search(params[:search]).order("created_at DESC")
-     else
-       @authors = Author.all.order('created_at DESC')
-     end
-   end
-
+	def index
+      @authors = Author.all.order("author_name")
+  end
 
 	def edit
 		@author = Author.find(params[:id])
@@ -37,7 +32,12 @@ class AuthorsController < ApplicationController
 		@author.update(author_params)
 
 		redirect_to author_path(id: @author.id)
-	end
+  end
+
+  def show
+    @author = Author.find(params[:id])
+  end
+
 
 	def destroy
 		@author = Author.find(params[:id])

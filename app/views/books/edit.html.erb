@@ -1,8 +1,8 @@
 <%= form_for @book, :url => book_path do |book| %>
-	<%= book.text_field :book_name %>
-	<%= book.hidden_field :author_id %>
-	<%= book.submit "Edit Book" %>
+	Book Name: <%= book.text_field :book_name %> <br>
+	<%# book.hidden_field :author_id %> <br>
+    Select Author: <%= book.select :author_id, Author.all.collect {|p| [p.author_name, p.id]}, {include_blank:true } %> <br>  <br>
+    <%= book.submit "Edit Book" %>   <%= link_to 'Go Back ', books_path %>
 
 <% end %>
 
-<%= link_to 'Go Back ', author_path(@book.author_id) %>

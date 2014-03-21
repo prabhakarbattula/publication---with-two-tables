@@ -7,28 +7,26 @@ class BooksController < ApplicationController
 	def create
 		@book = Book.create(book_params)
 		
-		redirect_to author_path(id: @book.author_id)
+		redirect_to book_path(id: @book.id)
   end
 
-  def king
+  def search
 
-  end
-
-  def index
-    if params[:search]
-      @books  = Book.search(params[:search]).order("created_at DESC")
-
-    else
-      @books = Book.all.order('created_at DESC')
-    end
   end
 
   def show
     @book = Book.find(params[:id])
-    @author = @book.author
   end
 
-	def edit
+  def display
+    @books  = Book.search(params[:search]).order("book_name")
+  end
+
+  def index
+      @books = Book.all.order('created_at DESC')
+  end
+
+  def edit
 		@book = Book.find(params[:id])
 	end
 
@@ -36,14 +34,14 @@ class BooksController < ApplicationController
 		@book = Book.find(params[:id])
 		@book.update(book_params)
 
-		redirect_to author_path(id: @book.author_id)
+		redirect_to book_path(id: @book.id)
 	end
 
 	def destroy
 		@book = Book.find(params[:id])
 		@book.delete
 
-		redirect_to authors_path
+		redirect_to books_path
 	end
 
 	def book_params
