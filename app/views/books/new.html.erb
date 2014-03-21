@@ -1,11 +1,12 @@
 <%= form_for @book, :url => books_path do |book| %>
 	Book Name: <%= book.text_field :book_name %> <br>
-	<%# book.hidden_field :author_id %>
+
+    Price: <%= book.text_field :price, :class => 'price', :value => (number_with_precision(book.object.price, :precision => 2) || 0.00) %>
 	<br>
+
     Select Author: <%= book.select :author_id, Author.all.collect {|p| [p.author_name, p.id]}, {include_blank:true } %> <br>
     <br>
     <%= book.submit "Create New Book", :class => "btn-info" %>
-
 
 
 <% end %>

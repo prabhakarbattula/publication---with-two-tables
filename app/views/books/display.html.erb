@@ -26,6 +26,7 @@
 <table>
   <tr>
     <th>Book Name</th>
+    <th>Book Price</th>
 
     <th> ACTION </th>
     <th> ACTION </th>
@@ -35,7 +36,7 @@
   <% @books.each do |book| %>
       <tr>
         <td><%= link_to book.book_name.upcase, book_path(id: book.id) %></td>
-
+        <td><%= book.price %></td>
         <td> <%= link_to "EDIT", edit_book_path(id: book.id), :class => 'btn btn-mini btn-warning' %> </td>
         <td> <%= link_to "DELETE", book_path(id: book.id), method: :delete, :class => 'btn btn-mini btn-danger' %> </td>
       </tr>
