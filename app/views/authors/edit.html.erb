@@ -1,5 +1,9 @@
-<%= form_for @author, :url => authors_path do |author| %>
-	<%= author.text_field :author_name %>
-	<%= author.submit "Update Author" %>
+<%= form_for @author, :url => author_path do |author| %>
+    Author's Name : <%= author.text_field :author_name %>   <br> <br>
+    Author's Sex : <%= author.select(:sex, %w{ Male Female }, :include_blank => true) %>    <br> <br>
+    Author's Country : <%= author.text_field :country %>
+    <br> <br>
+
+    <%= author.submit "Update Author" %>
 <% end %>
 

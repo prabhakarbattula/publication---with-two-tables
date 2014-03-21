@@ -1,14 +1,49 @@
 
-
-<h4> Displaying list of Books </h4>
+Name: <%= @author.author_name.upcase %> <br>
+Sex: <%= @author.sex %> <br>
+Country: <%= @author.country %> <br>
 <hr>
-<% @author.books.each do |a| %>
-	--> <%= a.book_name.upcase %> 
+<h4> Displaying search results for Authors </h4>
 
-	<%= link_to "EDIT", edit_book_path(id: a.id), :class => "btn btn-mini btn-warning btn-active" %>
-	<%= link_to "DELETE", book_path(id: a.id), method: :delete, :class => "btn btn-mini btn-danger btn-active" %>
+<head>
+  <style>
 
-	<br>
-<% end %>
+      table, td, th
+      {
+          border:2px solid blue;
+      }
+      th
+      {
+          background-color: royalblue;
+          color:white;
+      }
+      td, th
+      {
+          padding:5px;
+      }
+      tr:nth-child(even) {background-color: white}
+      tr:nth-child(odd) {background-color: lightcyan}
+  </style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <th> Book Name </th>
+    <th> ACTION </th>
+    <th> ACTION </th>
+
+  </tr>
+
+  <% @author.books.each do |a| %>
+      <tr>
+        <td><%= a.book_name.upcase %></td>
+        <td> <%= link_to "EDIT", edit_book_path(id: a.id), :class => "btn btn-mini btn-warning btn-active" %> </td>
+        <td> <%= link_to "DELETE", book_path(id: a.id), method: :delete, :class => "btn btn-mini btn-danger btn-active" %> </td>
+      </tr>
+  <% end %>
+</table>
+</body>
+
 
 
