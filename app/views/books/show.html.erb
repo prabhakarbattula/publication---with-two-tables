@@ -1,11 +1,7 @@
 
-<%= link_to "Go Back to Main Page", root_author_path, :class => "btn btn-small btn-primary btn-active" %>
 
 
-<hr>
-<h4> Displaying Author of the Book <%= @book.book_name %> </h4>
-<hr>
-<%= @book.author.author_name %>
+<h4> Author of the Book <h2>"<%= @book.book_name.upcase %>"</h2> is <h2>"<%= @book.author.author_name.upcase %>"</h2> </h4>
     <%= link_to "EDIT", edit_book_path(id: @book.id), :class => "btn btn-mini btn-warning btn-active" %>
     <%= link_to "DELETE", author_path(id: @book.id), method: :delete, :class => "btn btn-mini btn-danger btn-active" %>
 

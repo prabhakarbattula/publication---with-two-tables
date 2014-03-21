@@ -4,9 +4,9 @@
 	<br>
     Select Author: <%= book.select :author_id, Author.all.collect {|p| [p.author_name, p.id]}, {include_blank:true } %> <br>
     <br>
-    <%= book.submit "Create New Book" %>
+    <%= book.submit "Create New Book", :class => "btn-info" %>
 
-    <%= link_to 'Go Back ', root_author_path %>
+
 
 <% end %>
 
