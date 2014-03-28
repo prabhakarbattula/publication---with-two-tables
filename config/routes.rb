@@ -1,16 +1,31 @@
 Rails.application.routes.draw do
 
-  get 'authors/search' => 'authors#search', as: :search_author
-  get 'books/search' => 'books#search', as: :search_book
-  get 'authors/display' => 'authors#display', as: :display_author
-  get 'books/display' => 'books#display', as: :display_book
-  get 'authors/root' => 'authors#root', as: :root_author
+  #get 'authors/search' => 'authors#search', as: :search_author
+  #get 'books/search' => 'books#search', as: :search_book
+  #get 'authors/display' => 'authors#display', as: :display_author
+  #get 'books/display' => 'books#display', as: :display_book
+  #get 'authors/root' => 'authors#root', as: :root_author
 
   root  'authors#root'
 
-  resources :authors, :books
+  resources :authors
 
+    collection do
+      get :search
+      get :display
+      get :root
+    end
 
+  end
+
+  resources :books
+
+    collection do
+      get :search
+      get :display
+    end
+
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.

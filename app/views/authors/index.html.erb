@@ -35,12 +35,12 @@
 
   <% @authors.each do |author| %>
       <tr>
-        <td><%= link_to author.author_name.upcase, author_path(id: author.id) %></td>
+        <td><%= link_to author.author_name.upcase, author_path(author) %></td>
         <td><%= author.sex %></td>
         <td><%= author.country %></td>
 
-        <td> <%= link_to "EDIT", edit_author_path(id: author.id), :class => 'btn btn-mini btn-warning' %> </td>
-        <td> <%= link_to "DELETE", author_path(id: author.id), method: :delete, :class => 'btn btn-mini btn-danger' %> </td>
+        <td> <%= link_to "EDIT", edit_author_path(author), :class => 'btn btn-mini btn-warning' %> </td>
+        <td> <%= link_to "DELETE", author_path(author), method: :delete, :class => 'btn btn-mini btn-danger' %> </td>
       </tr>
   <% end %>
 </table>

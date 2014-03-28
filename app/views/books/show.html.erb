@@ -2,8 +2,8 @@
 
 
 <h4> Author of the Book <h3>"<%= @book.book_name.upcase %>"</h3> is <h3>"<%= @book.author.author_name.upcase %>" </h3> </h4>
-    <%= link_to "EDIT", edit_book_path(id: @book.id), :class => "btn btn-mini btn-warning btn-active" %>
-    <%= link_to "DELETE", author_path(id: @book.id), method: :delete, :class => "btn btn-mini btn-danger btn-active" %>
+    <%= link_to "EDIT", edit_book_path(@book), :class => "btn btn-mini btn-warning btn-active" %>
+    <%= link_to "DELETE", author_path(@book), method: :delete, :class => "btn btn-mini btn-danger btn-active" %>
 
     <br>
 

@@ -8,7 +8,7 @@ class AuthorsController < ApplicationController
 		@author = Author.new(author_params)
 		@author.save
 
-		redirect_to author_path(id: @author.id)
+		redirect_to author_path(@author)
 	end
 
   def search
@@ -31,7 +31,7 @@ class AuthorsController < ApplicationController
 		@author = Author.find(params[:id])
 		@author.update(author_params)
 
-		redirect_to author_path(id: @author.id)
+		redirect_to author_path(@author)
   end
 
   def show

@@ -41,8 +41,8 @@ Country: <%= @author.country %> <br>
       <tr>
         <td><%= book.book_name.upcase %></td>
         <td><%= book.price %></td>
-        <td> <%= link_to "EDIT", edit_book_path(id: book.id), :class => "btn btn-mini btn-warning btn-active" %> </td>
-        <td> <%= link_to "DELETE", book_path(id: book.id), method: :delete, :class => "btn btn-mini btn-danger btn-active" %> </td>
+        <td> <%= link_to "EDIT", edit_book_path(book.id), :class => "btn btn-mini btn-warning btn-active" %> </td>
+        <td> <%= link_to "DELETE", book_path(book.id), method: :delete, :class => "btn btn-mini btn-danger btn-active" %> </td>
       </tr>
   <% end %>
 </table>

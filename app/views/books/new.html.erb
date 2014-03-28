@@ -1,4 +1,4 @@
-<%= form_for @book, :url => books_path do |book| %>
+<%= form_for @book do |book| %>
 	Book Name: <%= book.text_field :book_name %> <br>
 
     Price: <%= book.text_field :price, :class => 'price', :value => (number_with_precision(book.object.price, :precision => 2) || 0.00) %>
