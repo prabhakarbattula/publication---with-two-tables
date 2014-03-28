@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   root  'authors#root'
 
-  resources :authors
+  resources :authors do
 
     collection do
       get :search
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   end
 
-  resources :books
+  resources :books do
 
     collection do
       get :search
